@@ -1,1 +1,1 @@
-export const SAVE_COMMENT = 'save comment';
+export const CHANGE_AUTH = 'change_auth';
