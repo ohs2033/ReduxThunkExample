@@ -1,6 +1,6 @@
-# ReduxSimpleStarter
+# ReduxThunkExample
 
-FORK FROM stephengrider's redux-simple-starter?
+FORK FROM stephengrider's redux-simple-starter
 
 
 ```
