@@ -8,5 +8,5 @@ FORK FROM stephengrider's redux-simple-starter?
 	> cd ReduxThunkExample
 	> npm install
 	> npm build
-	> npm babel-start
+	> npm start-babel
 ```
