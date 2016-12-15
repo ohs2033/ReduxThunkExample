@@ -7,6 +7,10 @@ app.get('/', function (req, res) {
 });
 
 app.get('/data', function (req, res) {
+	var a = 3;
+	for (var i =0; i <1000000000 ; i++) {
+		a = 3 + 3;
+	}
   res.send(JSON.stringify({
     resource: 30000
   }))

@@ -1,14 +1,17 @@
 // @flow
 import React, {PropTypes, Component} from 'react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {getDefaultData} from '../actions/index.js'
 
-export default class myclass extends Component {
+class Resource extends Component {
   static propTypes = {
 
   }
   static defaultProps = {
 
   }
-  static state = {
+  state = {
 
   }
   componentWillMount = () => {
@@ -16,8 +19,7 @@ export default class myclass extends Component {
   componentDidMount = () => {
   }
   componentWillReceiveProps = (nextProps) => {
-  }
-  shouldComponentUpdate = (nextProps, nextState) => {
+    console.info('nextProps', nextProps)
   }
   componentWillUpdate = (nextProps, nextState) => {
   }
@@ -25,9 +27,32 @@ export default class myclass extends Component {
   }
   handleClick = (e) => {
     e.preventDefault()
+    this.props.getDefaultData()
 
   }
   render = () => {
-    return <div><a href onClick={this.handleClick}>get Data From Server!</a></div>
+    return (
+    <div>
+      <div style={{display: this.props.isSpinnerOn ? 'block' : 'none'}}>
+        <img src='https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif'/>
+      </div>
+      <a href onClick={this.handleClick}>get Data From Server!</a>
+      {this.props.resource}
+    </div>
+    )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state.data,
+    ...state.spinner
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    getDefaultData
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Resource)

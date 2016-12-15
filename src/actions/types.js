@@ -11,7 +11,7 @@ const keyMirror = (obj) => {
     if (obj.hasOwnProperty(key)) {
       if (obj[key] === ASYNC) {
         ret[key] = {}
-        ret[key][ORIGIN] = `${key}_${ORIGIN}`
+        ret[key][ORIGIN] = `${key}`
         ret[key][REQUEST] = `${key}_${REQUEST}`
         ret[key][SUCCESS] = `${key}_${SUCCESS}`
         ret[key][FAILURE] = `${key}_${FAILURE}`
@@ -28,6 +28,8 @@ const keyMirror = (obj) => {
 }
 
 export const CHANGE_AUTH = 'change_auth';
+export const SPINNER_ON = 'SPINNER_ON'
+export const SPINNER_OFF = 'SPINNER_OFF'
 export const DATA = keyMirror({
   GET_DATA: ASYNC
 })
